@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shop.Web.Data;
+using Shop.Web.Data.Entities;
 
 namespace Shop.Web
 {
@@ -30,6 +31,10 @@ namespace Shop.Web
             {
                 cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddTransient<SeedDB>();
+
+            services.AddScoped<IRepository, Repository>()
 
             services.Configure<CookiePolicyOptions>(options =>
             {
