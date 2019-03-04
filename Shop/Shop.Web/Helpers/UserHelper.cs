@@ -21,9 +21,9 @@ namespace Shop.Web.Helpers
             return await this.userMAnager.CreateAsync(user, password);
         }
 
-        public Task<User> GetUserByEmailAsync(string email)
+        public async Task<User> GetUserByEmailAsync(string email)
         {
-            throw new NotImplementedException();
+            return await this.userMAnager.FindByEmailAsync(email);
         }
     }
 }
